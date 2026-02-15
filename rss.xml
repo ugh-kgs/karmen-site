@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="https://ksg.life/karmen-site/" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="https://ksg.life/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Karm Life</title>
-    <link>https://ksg.life/karmen-site/</link>
-    <atom:link href="https://ksg.life/karmen-site/rss.xml" rel="self" type="application/rss+xml" />
+    <link>https://ksg.life/</link>
+    <atom:link href="https://ksg.life/rss.xml" rel="self" type="application/rss+xml" />
     <description>Gathering-place of all my thoughts and art and stuff and cool pics i saw and stuff like that</description>
     <language>en</language>
     <image>
-      <url>https://ksg.life/karmen-site/profile.jpg</url>
+      <url>https://ksg.life/profile.jpg</url>
     </image>
     <item>
       <title>Dale Cooper, or how I learned to stop worrying and love sexy FBI Agents</title>
-      <link>https://ksg.life/karmen-site/p/Feb.14.26.At.20.39/</link>
+      <link>https://ksg.life/p/Feb.14.26.At.20.39/</link>
       <description><p>It's a blue rose</p></description>
-      <content>&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://ksg.life/karmen-site/p/Feb.14.26.At.20.39/BECzivxYui-1100.webp 1100w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://ksg.life/karmen-site/p/Feb.14.26.At.20.39/BECzivxYui-1100.jpeg&quot; alt=&quot;Dale Cooper :)&quot; width=&quot;1100&quot; height=&quot;1100&quot;&gt;&lt;/picture&gt;&lt;br&gt;&lt;p&gt;It&#39;s a blue rose&lt;/p&gt;
+      <content>&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://ksg.life/p/Feb.14.26.At.20.39/BECzivxYui-1100.webp 1100w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://ksg.life/p/Feb.14.26.At.20.39/BECzivxYui-1100.jpeg&quot; alt=&quot;Dale Cooper :)&quot; width=&quot;1100&quot; height=&quot;1100&quot;&gt;&lt;/picture&gt;&lt;br&gt;&lt;p&gt;It&#39;s a blue rose&lt;/p&gt;
 </content>
       <pubDate>Sun, 15 Feb 2026 02:39:16 GMT</pubDate>
       <dc:creator>Karmen Griffin</dc:creator>
-      <guid>https://ksg.life/karmen-site/p/Feb.14.26.At.20.39/</guid>
+      <guid>https://ksg.life/p/Feb.14.26.At.20.39/</guid>
     </item>
   </channel>
 </rss>
