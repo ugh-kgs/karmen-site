@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme {
+	--color-hot-pink-50: oklch(97% 0.0229 347.63);
+	--color-hot-pink-100: oklch(94.58% 0.0449 344.96);
+	--color-hot-pink-200: oklch(89.53% 0.0899 345.99);
+	--color-hot-pink-300: oklch(81.67% 0.1635 348.84);
+	--color-hot-pink-400: oklch(69.79% 0.2831 355.63);
+	--color-hot-pink-500: oklch(66.31% 0.3018 359.72);
+	--color-hot-pink-600: oklch(60.71% 0.2743 7.34);
+	--color-hot-pink-700: oklch(54.22% 0.2436 10.93);
+	--color-hot-pink-800: oklch(47.14% 0.2118 10.6);
+	--color-hot-pink-900: oklch(41.66% 0.1876 8.95);
+	--color-persimmon-50: oklch(96.91% 0.0196 17.42);
+	--color-persimmon-100: oklch(93.43% 0.0427 17.76);
+	--color-persimmon-200: oklch(87.93% 0.0833 18.45);
+	--color-persimmon-300: oklch(80.15% 0.1459 19.86);
+	--color-persimmon-400: oklch(68.46% 0.259 24.28);
+	--color-persimmon-500: oklch(64.33% 0.2941 26.26);
+	--color-persimmon-600: oklch(58.82% 0.27 28.06);
+	--color-persimmon-700: oklch(51.61% 0.237 28.23);
+	--color-persimmon-800: oklch(45.22% 0.2074 27.78);
+	--color-persimmon-900: oklch(40.04% 0.1832 26.62);
+	--color-cerulean-50: oklch(97.71% 0.013 236.62);
+	--color-cerulean-100: oklch(95.34% 0.0284 232.97);
+	--color-cerulean-200: oklch(90.53% 0.0635 228.11);
+	--color-cerulean-300: oklch(83.41% 0.1151 227.98);
+	--color-cerulean-400: oklch(76.78% 0.1602 229.65);
+	--color-cerulean-500: oklch(70.19% 0.192 234.14);
+	--color-cerulean-600: oklch(64.12% 0.1898 239.6);
+	--color-cerulean-700: oklch(51.08% 0.1514 240.79);
+	--color-cerulean-800: oklch(45.15% 0.1305 238.64);
+	--color-cerulean-900: oklch(39.96% 0.1151 238.14);
+	--color-limeade-50: oklch(98.87% 0.0361 117.59);
+	--color-limeade-100: oklch(97.44% 0.0789 120.74);
+	--color-limeade-200: oklch(95.32% 0.1481 123.12);
+	--color-limeade-300: oklch(92.81% 0.2304 126.09);
+	--color-limeade-400: oklch(89.01% 0.2732 128.28);
+	--color-limeade-500: oklch(81.22% 0.2579 130.72);
+	--color-limeade-600: oklch(64.79% 0.2085 131.4);
+	--color-limeade-700: oklch(55.89% 0.1788 131.45);
+	--color-limeade-800: oklch(47.43% 0.1492 130.6);
+	--color-limeade-900: oklch(42.01% 0.1327 130.98);
+
+	--font-system-ui: "system-ui", "sans-serif";
+	--font-transitional:
+		"Charter", "Bitstream Charter", "Sitka Text", "Cambria", "serif";
+	--font-old-style:
+		"Iowan Old Style", "Palatino Linotype", "URW Palladio L", "P052", "serif";
+	--font-humanist:
+		"Seravek", "Gill Sans Nova", "Ubuntu", "Calibri", "DejaVu Sans",
+		"source-sans-pro", "sans-serif";
+	--font-geometric-humanist:
+		"Avenir", "Montserrat", "Corbel", "URW Gothic", "source-sans-pro",
+		"sans-serif";
+	--font-classical-humanist:
+		"Optima", "Candara", "Noto Sans", "source-sans-pro", "sans-serif";
+	--font-neo-grotesque:
+		"Inter", "Roboto", "Helvetica Neue", "Arial Nova", "Nimbus Sans", "Arial",
+		"sans-serif";
+	--font-monospace-slab-serif: "Nimbus Mono PS", "Courier New", "monospace";
+	--font-monospace-code:
+		"ui-monospace", "Cascadia Code", "Source Code Pro", "Menlo", "Consolas",
+		"DejaVu Sans Mono", "monospace";
+	--font-industrial:
+		"Bahnschrift", "DIN Alternate", "Franklin Gothic Medium",
+		"Nimbus Sans Narrow", "sans-serif-condensed", "sans-serif";
+	--font-rounded-sans:
+		"ui-rounded", "Hiragino Maru Gothic ProN", "Quicksand", "Comfortaa",
+		"Manjari", "Arial Rounded MT", "Arial Rounded MT Bold", "Calibri",
+		"source-sans-pro", "sans-serif";
+	--font-slab-serif:
+		"Rockwell", "Rockwell Nova", "Roboto Slab", "DejaVu Serif", "Sitka Small",
+		"serif";
+	--font-antique:
+		"Superclarendon", "Bookman Old Style", "URW Bookman", "URW Bookman L",
+		"Georgia Pro", "Georgia", "serif";
+	--font-didone:
+		"Didot", "Bodoni MT", "Noto Serif Display", "URW Palladio L", "P052",
+		"Sylfaen", "serif";
+	--font-handwritten:
+		"Segoe Print", "Bradley Hand", "Chilanka", "TSCu_Comic", "casual", "cursive";
+}
+
+@utility aspect-sd {
+	aspect-ratio: 4 / 3;
+}
+
+@utility render-pixelated {
+	image-rendering: pixelated;
+}
+
+@layer base {
+	body {
+		@apply bg-black text-gray-300 font-rounded-sans;
+	}
+
+	header {
+		view-transition-name: --header;
+	}
+
+	main {
+		@apply relative flex-auto;
+	}
+
+	a {
+		@apply text-cerulean-600 underline;
+	}
+
+	img,
+	video {
+		content-visibility: auto;
+	}
+
+	kbd {
+		@apply inline-flex items-center justify-around border-2 border-gray-500 rounded-md w-16 font-monospace-code font-bold text-center m-1;
+	}
+
+	@view-transition {
+		navigation: auto;
+	}
+
+	footer {
+		view-transition-name: --footer;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		::view-transition-old(root) {
+			animation-duration: 200ms;
+		}
+
+		::view-transition-new(root) {
+			animation-duration: 200ms;
+		}
+	}
+}

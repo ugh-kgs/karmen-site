@@ -1,0 +1,36 @@
+{
+	"name": "karmen-site",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"build:11ty": "npx @11ty/eleventy --quiet",
+		"build:css": "npx @tailwindcss/cli -i styles/global.css -o _site/global.css --minimize",
+		"build": "npm run build:11ty && npm run build:css",
+		"dev:11ty": "npx @11ty/eleventy --serve --quiet",
+		"dev:css": "npx @tailwindcss/cli -i styles/global.css -o _site/global.css --watch",
+		"dev": "npm run dev:11ty & npm run dev:css",
+		"format": "npx @biomejs/biome check --write",
+		"test": "npx @biomejs/biome check"
+	},
+	"keywords": [
+		"11ty",
+		"photo",
+		"blog"
+	],
+	"author": "karmen griffin",
+	"license": "GAL",
+	"type": "module",
+	"description": "A lightweight, responsive, and highly performant gallery for photos and videos.",
+	"dependencies": {
+		"@11ty/eleventy": "^3.1.2",
+		"@11ty/eleventy-img": "^6.0.4",
+		"@11ty/eleventy-plugin-rss": "^2.0.4",
+		"@biomejs/biome": "^2.3.10",
+		"@tailwindcss/cli": "^4.1.18",
+		"lefthook": "^2.0.12",
+		"markdown-it": "^14.1.0",
+		"tailwindcss": "^4.1.18",
+		"zod": "^4.2.1",
+		"zod-validation-error": "^5.0.0"
+	}
+}

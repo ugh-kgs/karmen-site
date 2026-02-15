@@ -1,0 +1,36 @@
+---
+eleventyExcludeFromCollections: true
+layout: false
+permalink: rss.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="{{ metadata.url | addPathPrefixToFullUrl }}" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ metadata.title }}</title>
+    <link>{{ metadata.url | addPathPrefixToFullUrl }}</link>
+    <atom:link href="{{ permalink | htmlBaseUrl(metadata.url) }}" rel="self" type="application/rss+xml" />
+    <description>{{ metadata.description }}</description>
+    <language>{{ metadata.language or page.lang }}</language>
+    <image>
+      <url>{{ metadata.url | addPathPrefixToFullUrl }}profile.jpg</url>
+    </image>
+    {%- for post in collections.posts | reverse %}
+    {%- set absolutePostUrl = post.url | htmlBaseUrl(metadata.url) %}
+    <item>
+      <title>{{ post.data.title | trim | safe }}</title>
+      <link>{{ absolutePostUrl }}</link>
+      <description>{{ post.content | trim | safe }}</description>
+      <content>{{ post.content | prependAttachments(post.data.attachments) | renderTransforms(post.data.page, metadata.url) }}</content>
+      <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
+      <dc:creator>{{ metadata.author.name }}</dc:creator>
+      <guid>{{ absolutePostUrl }}</guid>
+      {%- if post.data.source or post.data.author %}
+      <source{% if post.data.source %} url="{{ post.data.source }}"{% endif %}>{{ post.data.author or post.data.source }}</source>
+      {%- if post.data.author %}
+      <author>{{ post.data.author }}</author>
+      {%- endif %}
+      {%- endif %}
+    </item>
+    {%- endfor %}
+  </channel>
+</rss>

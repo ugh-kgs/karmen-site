@@ -1,0 +1,21 @@
+<footer class="w-full" role="contentinfo">
+  <div class="flex flex-col justify-between gap-5">
+    <p>{{ metadata.description }}</p>
+    <p>
+      a photo blog by
+      <a class="cxa" href="{{ metadata.author.url }}" rel="me">{{ metadata.author.name }}</a>
+      <br />
+      <a class="cxa" href="{{ metadata.author.fediverseUrl }}" rel="me">
+        {{ metadata.author.fediverse }}
+      </a>
+    </p>
+    <p>
+      browse by
+      <a class="cxa" href="/t">tags</a>
+      <br />
+      subscribe with
+      <a class="cxa" href="/atom.xml">atom</a>,
+      <a class="cxa" href="/rss.xml">rss</a>
+    </p>
+  </div>
+</footer>

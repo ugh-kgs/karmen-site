@@ -1,0 +1,56 @@
+---
+title: Tags
+eleventyImport:
+  collections: ["posts"]
+permalink: t/
+---
+
+<h2 class="my-4 mx-2 text-pretty text-xl font-medium">
+  Posts by tag
+</h2>
+
+<ul class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mx-2 mb-4">
+  {% for tag in collections.posts | getTagsByCount %}
+  <li>
+    <a
+      class="p-category relative rounded-md overflow-hidden block"
+      href="/t/{{ tag.key | slugify }}"
+      aria-label="Posts tagged #{{ tag.key }}"
+    >
+      <div class="bg-gray-900 grid grid-cols-2 gap-0">
+        {%- set posts = collections[tag.key] | reverse | getHead(4) %}
+        {%- for post in posts %}
+        {%- for attachment in post.data.attachments | getHead(1) %}
+        <div class="aspect-square cv-auto overflow-hidden">
+        {%- if attachment.type.startsWith("image") %}
+          <img class="aspect-square object-cover{{ " render-pixelated" if attachment.pixel }}" src="{{ attachment.url | postImagePath }}" alt="{{ attachment.altText }}">
+        {%- elseif attachment.type.startsWith("video") %}
+          <video
+            aria-label="{{ attachment.altText }}"
+            autoplay="true"
+            class="pointer-events-none aspect-square object-cover{{ " render-pixelated" if attachment.pixel }}"
+            loop="true"
+            muted="true"
+            playsinline="true"
+            preload="auto"
+            disablepictureinpicture="true"
+            src="{{ attachment.url | postImagePath }}"
+          >
+          </video>
+        {%- endif %}
+        </div>
+        {%- endfor %}
+        {%- endfor %}
+        {%- set filler = 4 - posts | length %}
+        {%- for i in range(0, filler) %}
+        <span class="aspect-square cv-auto overflow-clip {{ ["bg-black/25", "bg-black/30","bg-black/40", "bg-black/50", "bg-black/60", "bg-black/70", "bg-black/75"] | random }}">
+        </span>
+        {%- endfor %}
+      </div>
+      <p class="absolute uppercase p-category bottom-0 left-0 overflow-ellipsis text-sm bg-black/50 text-white font-semibold backdrop-blur-lg rounded-tr-lg px-2 py-1 whitespace-nowrap">
+        #{{ tag.key }} ({{ tag.count }})
+      </p>
+    </a>
+  </li>
+  {% endfor %}
+</ul>

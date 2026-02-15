@@ -1,0 +1,20 @@
+---
+eleventyImport:
+  collections: ["posts"]
+pagination:
+  data: collections.posts
+  size: 24
+  alias: posts
+  reverse: true
+permalink: "{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+eleventyComputed:
+  title: "{% if pagination.pageNumber > 0 %}Page {{ pagination.pageNumber + 1 }}{% endif %}"
+  currentPageNumber: "{{ pagination.pageNumber + 1 }}"
+  totalPages: "{{ pagination.links | length }}"
+  previousPageHref: "{{ pagination.previousPageHref }}"
+  nextPageHref: "{{ pagination.nextPageHref }}"
+---
+
+{%- include "postlist.njk" %}
+{%- from "helpers/macros.njk" import pagination %}
+{{ pagination(previousPageHref, nextPageHref, currentPageNumber, totalPages) }}

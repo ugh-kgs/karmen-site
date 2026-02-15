@@ -1,0 +1,44 @@
+<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-y-1 md:gap-2">
+  {%- for post in posts %}
+  {%- for attachment in post.data.attachments | getHead(1) %}
+    <a href="{{ post.url }}" class="relative focus:outline-cerulean-500 focus:outline-offset-2 aspect-square cv-auto overflow-clip group">
+      {%- if attachment.type.startsWith("image") %}
+        <img class="aspect-square w-full h-full object-cover{{ " render-pixelated" if attachment.pixel }}" src="{{ attachment.url | postImagePath }}" alt="{{ attachment.altText }}">
+      {%- elseif attachment.type.startsWith("video") %}
+          <video
+            aria-label="{{ attachment.altText }}"
+            autoplay="true"
+            class="aspect-square w-full h-full object-cover{{ " render-pixelated" if attachment.pixel }}"
+            loop="true"
+            muted="true"
+            playsinline="true"
+            preload="auto"
+            disablepictureinpicture="true"
+            src="{{ attachment.url | postImagePath }}"
+          >
+          </video>
+      {%- endif %}
+      
+      <p class="group-hover:opacity-100 group-focus:opacity-100 opacity-0 absolute top-0 left-0 overflow-ellipsis text-sm bg-black/50 text-white font-semibold backdrop-blur-lg rounded-br-lg px-2 py-1 motion-safe:transition-opacity">
+        <time class="inline dt-published uppercase" datetime="{{ post.date | toISOString }}">
+          {{ post.date | formatDate }}
+        </time>
+      </p>
+      <p class="opacity-100 absolute bottom-0 left-0 overflow-ellipsis text-sm bg-black/50 text-white font-semibold backdrop-blur-lg rounded-br-lg px-2 py-1 motion-safe:transition-opacity">
+          {{ post.data.title }}
+      </p>
+
+      {%- if post.data.attachments.length > 1 %}
+      <p class="absolute top-0 right-0 overflow-ellipsis text-sm bg-black/50 text-white font-semibold backdrop-blur-lg rounded-bl-lg px-2 py-1">
+        +{{ post.data.attachments.length }}
+      </p>
+      {%- endif %}
+      {%- if post.data.author %}
+      <p class="absolute bottom-0 right-0 overflow-ellipsis text-sm bg-black/50 text-white font-semibold backdrop-blur-lg rounded-tl-lg px-2 py-1">
+        by {{ post.data.author }}
+      </p>
+      {%- endif %}
+    </a>
+  {%- endfor %}
+  {%- endfor %}
+</div>

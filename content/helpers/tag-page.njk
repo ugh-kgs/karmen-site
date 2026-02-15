@@ -1,0 +1,20 @@
+---
+pagination:
+  data: collections.tagPages
+  size: 1
+  alias: page
+permalink: "t/{{ page.name | slugify }}/{% if page.currentPage > 0 %}{{ page.currentPage + 1 }}/{% endif %}index.html"
+eleventyComputed:
+  title: "Posts tagged #{{ page.name }}{% if page.currentPage > 0 %}, page {{ page.currentPage + 1 }}{% endif %}"
+  prevHref: "{% if page.currentPage != 0 %}/t/{{ page.name | slugify }}/{{ page.currentPage + '/' if page.currentPage !== 1 else '' }}{% endif %}"
+  nextHref: "{% if page.currentPage + 1 !== page.totalPages %}/t/{{ page.name | slugify }}/{{ page.currentPage + 2 }}/{% endif %}"
+---
+
+<h2 class="my-4 mx-2 text-pretty text-xl font-medium">
+  Posts tagged #{{ page.name }}
+</h2>
+
+{%- set posts = page.items %}
+{%- include "postlist.njk" %}
+{%- from "helpers/macros.njk" import pagination %}
+{{ pagination(prevHref, nextHref, page.currentPage + 1, page.totalPages) }}

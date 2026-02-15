@@ -1,0 +1,74 @@
+---
+layout: layouts/base.njk
+eleventyComputed:
+  attachments: {{ attachments }}
+  tags: {{ tags | cleanTags }}
+  author: "{{ author }}"
+  source: "{{ source }}"
+  title: "{{ author }} {{ title }}"
+---
+<article tabindex="-1" class="h-entry mb-6">
+{%- for attachment in attachments %}
+  <div class="w-full cv-auto overflow-clip">
+  {%- if attachment.type.startsWith("image") %}
+    <img class="h-128 w-max object-contain{{ " render-pixelated" if attachment.pixel }}" src="{{ attachment.url | postImagePath }}" alt="{{ attachment.altText }}"/>
+  {%- elseif attachment.type.startsWith("video") %}
+      <video
+        aria-label="{{ attachment.altText }}"
+        class="max-h-svh w-full object-contain{{ " render-pixelated" if attachment.pixel }}"
+        playsinline="true"
+        preload="auto"
+        controls="true"
+        loop="true"
+        src="{{ attachment.url | postImagePath }}"
+      >
+      </video>
+  {%- endif %}
+  </div>
+{%- endfor %}
+  <div class="my-8 mx-3">
+    {%- if author %}
+    <p>
+      by
+      {% if source -%}<a href="{{ source }}">{%- endif -%}
+      {{ author }}
+      {%- if source -%}</a>{%- endif -%}
+    </p>
+    {%- endif %}
+    <div class="p-name">{{ content | safe }}</div>
+    <div class="text-sm my-4 uppercase">
+      <a href="{{ page.url }}">
+        <time class="inline dt-published" datetime="{{ date | toISOString }}">{{ date | formatDate }}</time></a>
+      {{ " • " }}
+      <share-btn data-url="{{ metadata.url }}{{ page.url }}">
+        <button class="hidden text-cerulean-600 underline cursor-pointer uppercase" title="Share this post">Share</button>
+        <a
+          title="Share this post"
+          href="https://shareopenly.org/share/?url={{ metadata.url }}{{ page.url }}"
+        >Share</a>
+      </share-btn>
+      {%- set cleanedTags = tags | cleanTags %}
+      {{ " • " if cleanedTags.length }}
+      <ul class="inline list-none">
+      {%- for tag in cleanedTags %}
+        <li class="inline mr-1">
+          <a
+            class="uppercase p-category"
+            href="/t/{{ tag | slugify }}"
+            aria-label="Posts tagged #{{ tag }}"
+          >#{{ tag }}</a>
+        </li>
+      {%- endfor %}
+      </ul>
+    </div>
+  </div>
+</article>
+
+{%- if collections.posts %}
+{%- set nextPost = collections.posts | getPreviousCollectionItem %}
+{%- set previousPost = collections.posts | getNextCollectionItem %}
+{%- if nextPost or previousPost %}
+{%- from "helpers/macros.njk" import pagination %}
+{{ pagination(previousPost.url, nextPost.url) }}
+{%- endif %}
+{%- endif %}
