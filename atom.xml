@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>Karm Life</title>
+  <subtitle>Gathering-place of all my thoughts and art and stuff and cool pics i saw and stuff like that</subtitle>
+  <link href="https://ksg.life/karmen-site/atom.xml" rel="self" />
+  <link href="https://ksg.life/karmen-site/" />
+  <updated>2026-02-15T02:39:16Z</updated>
+  <id>https://ksg.life/karmen-site/</id>
+  <author>
+    <name>Karmen Griffin</name>
+    <url>https://ksg.life</url>
+  </author>
+  <icon>https://ksg.life/karmen-site/profile.jpg</icon>
+  <entry>
+    <title> Dale Cooper, or how I learned to stop worrying and love sexy FBI Agents</title>
+    <link href="https://ksg.life/karmen-site/p/Feb.14.26.At.20.39/" />
+    <updated>2026-02-15T02:39:16Z</updated>
+    <id>https://ksg.life/karmen-site/p/Feb.14.26.At.20.39/</id>
+    <content type="html">&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://ksg.life/karmen-site/p/Feb.14.26.At.20.39/BECzivxYui-1100.webp 1100w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://ksg.life/karmen-site/p/Feb.14.26.At.20.39/BECzivxYui-1100.jpeg&quot; alt=&quot;Dale Cooper :)&quot; width=&quot;1100&quot; height=&quot;1100&quot;&gt;&lt;/picture&gt;&lt;br&gt;&lt;p&gt;It&#39;s a blue rose&lt;/p&gt;
+</content>
+  </entry>
+</feed>
