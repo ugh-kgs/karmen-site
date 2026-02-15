@@ -10,7 +10,8 @@
 		"dev:css": "npx @tailwindcss/cli -i styles/global.css -o _site/global.css --watch",
 		"dev": "npm run dev:11ty & npm run dev:css",
 		"format": "npx @biomejs/biome check --write",
-		"test": "npx @biomejs/biome check"
+		"test": "npx @biomejs/biome check",
+		"build-ghpages": "npx @11ty/eleventy --pathprefix=/karmen-site/"
 	},
 	"keywords": [
 		"11ty",
