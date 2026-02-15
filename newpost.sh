@@ -35,6 +35,7 @@ OUTPUT_FILE="./content/p/$(date +"%b.%d.%y.At.%H.%M").md"
 # =========================
 cat <<EOF > "$OUTPUT_FILE"
 ---
+title: Change me!
 date: $DATE
 attachments:
   - altText: $ALT_TEXT
